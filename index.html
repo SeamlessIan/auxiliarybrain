@@ -18,6 +18,7 @@
             color: #333;
             background: white;
             padding-top: 70px; /* Space for sticky nav */
+            padding-bottom: 70px; /* Space for sticky bottom banner */
         }
         /* Sticky Navigation */
         .nav {
@@ -73,91 +74,80 @@
             font-size: 1.1rem;
             color: #666;
         }
-        /* CTA Section */
-        .cta-section {
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 8px;
-            margin: 2rem 0;
+        /* Sticky Bottom CTA Banner */
+        .cta-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            padding: 1rem 2rem;
+        }
+        .cta-banner-container {
+            max-width: 800px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 1.5rem;
+            position: relative;
+            padding-right: 2rem; /* Space for X button */
         }
-        .cta-content {
+        .cta-banner-content {
             flex: 1;
-            text-align: left;
+            color: white;
         }
-        .cta-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-        .cta-section p {
+        .cta-banner h3 {
             font-size: 1rem;
-            color: #555;
+            margin-bottom: 0.15rem;
+            color: white;
+            font-weight: 600;
+        }
+        .cta-banner p {
+            font-size: 0.85rem;
+            color: #ecf0f1;
             margin-bottom: 0;
         }
-        .cta-button {
+        .cta-banner-button {
             display: inline-block;
             background: #e7352b;
             color: white;
             text-decoration: none;
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 6px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 53, 43, 0.3);
             white-space: nowrap;
             flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(231, 53, 43, 0.4);
         }
-        .cta-button:hover {
+        .cta-banner-button:hover {
             background: #c92a21;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 53, 43, 0.4);
+            box-shadow: 0 4px 15px rgba(231, 53, 43, 0.5);
         }
-        .cta-secondary {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e3ebf3 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border: 2px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-        .cta-secondary-content {
-            flex: 1;
-            text-align: left;
-        }
-        .cta-secondary h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-        .cta-secondary p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 0;
-        }
-        .cta-button-secondary {
-            display: inline-block;
-            background: #e7352b;
+        .cta-banner-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0;
+            background: none;
+            border: none;
             color: white;
-            text-decoration: none;
-            padding: 0.875rem 2rem;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
         }
-        .cta-button-secondary:hover {
-            background: #c92a21;
-            transform: translateY(-1px);
+        .cta-banner-close:hover {
+            opacity: 1;
+        }
+        .cta-banner.hidden {
+            display: none;
         }
         /* Sections */
         .section {
@@ -301,25 +291,37 @@
             .section {
                 padding: 2rem 0;
             }
-            .cta-section {
-                padding: 2rem 1rem;
-                margin: 1rem 0;
-                flex-direction: column;
-                text-align: center;
+            .cta-banner {
+                padding: 0.75rem 1rem 0.75rem 1rem;
             }
-            .cta-content {
-                text-align: center;
+            .cta-banner-container {
+                flex-direction: row;
+                gap: 1rem;
+                padding-right: 2.5rem; /* More space for X on mobile */
             }
-            .cta-section h2 {
-                font-size: 1.3rem;
+            .cta-banner-content {
+                flex: 1;
+                text-align: left;
+                min-width: 0; /* Allow text to shrink */
             }
-            .cta-section p {
-                font-size: 0.95rem;
-                margin-bottom: 1.5rem;
+            .cta-banner h3 {
+                font-size: 0.9rem;
             }
-            .cta-button {
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
+            .cta-banner p {
+                font-size: 0.75rem;
+            }
+            .cta-banner-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+            .cta-banner-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                font-size: 1.25rem;
+            }
+            body {
+                padding-bottom: 85px;
             }
             .certifications-grid {
                 grid-template-columns: 1fr;
@@ -332,6 +334,7 @@
         @media (max-width: 480px) {
             body {
                 padding-top: 80px;
+                padding-bottom: 100px;
             }
             .nav-container {
                 gap: 0.75rem;
@@ -340,20 +343,21 @@
             .clients-grid {
                 grid-template-columns: 1fr;
             }
-            .cta-button {
-                padding: 0.75rem 1.25rem;
-                font-size: 0.95rem;
+            .cta-banner {
+                padding: 0.65rem 0.75rem;
             }
-            .cta-secondary {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.5rem 1rem;
+            .cta-banner-container {
+                padding-right: 2rem;
             }
-            .cta-secondary-content {
-                text-align: center;
+            .cta-banner h3 {
+                font-size: 0.85rem;
             }
-            .cta-secondary p {
-                margin-bottom: 1.5rem;
+            .cta-banner p {
+                font-size: 0.7rem;
+            }
+            .cta-banner-button {
+                padding: 0.5rem 0.85rem;
+                font-size: 0.8rem;
             }
         }
         /* Smooth scrolling */
@@ -382,22 +386,13 @@
         <header class="header" id="home">
             <h1 class="company-name">Auxiliary Brain</h1>
             <img src="images/auxiliary-brain-logo.jpg" alt="Auxiliary Brain LLC" class="logo">
-            <p class="tagline">Authorized Zoho Partner</p>
+            <p class="tagline">Certified Zoho Developer</p>
         </header>
-
-        <!-- Primary CTA Section -->
-        <div class="cta-section">
-            <div class="cta-content">
-                <h2>🚀 Try Zoho One Free for 30 Days</h2>
-                <p>Get access to 45+ integrated business applications with a free trial. No credit card required.</p>
-            </div>
-            <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=441d9020042615231923a5eff6e1c68c" class="cta-button" target="_blank" rel="noopener noreferrer">Start Your Free Trial</a>
-        </div>
 
         <!-- About Section -->
         <section class="section" id="about">
             <h2>About</h2>
-            <p>I am an Authorized Zoho Partner / Certified Zoho Developer with 10+ years of experience.</p>
+            <p>I am a certified Zoho Developer with 10+ years of experience.</p>
             <p>My experience includes clients in energy, retail, politics, medicine, transportation, and finance.</p>
         </section>
         <!-- Certifications Section -->
@@ -449,15 +444,6 @@
             </div>
         </section>
 
-        <!-- Secondary CTA Section -->
-        <div class="cta-secondary">
-            <div class="cta-secondary-content">
-                <h3>Ready to Transform Your Business?</h3>
-                <p>Start your free 30-day trial of Zoho One and discover how integrated business software can streamline your operations.</p>
-            </div>
-            <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=441d9020042615231923a5eff6e1c68c" class="cta-button-secondary" target="_blank" rel="noopener noreferrer">Get Started Free</a>
-        </div>
-
            <!-- Contact Form -->
         <section class="section contact-section" id="contact">
             <h2>Get In Touch</h2>
@@ -468,6 +454,19 @@
             <p>&copy; 2025 Auxiliary Brain, LLC. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Sticky Bottom CTA Banner -->
+    <div class="cta-banner" id="ctaBanner">
+        <div class="cta-banner-container">
+            <div class="cta-banner-content">
+                <h3>🚀 Try Zoho One Free for 30 Days</h3>
+                <p>Get access to 45+ integrated business applications. No credit card required.</p>
+            </div>
+            <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=441d9020042615231923a5eff6e1c68c" class="cta-banner-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+            <button class="cta-banner-close" onclick="document.getElementById('ctaBanner').classList.add('hidden')" aria-label="Close banner">×</button>
+        </div>
+    </div>
+
     <script>
         // Smooth scrolling for navigation (backup for older browsers)
         document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
