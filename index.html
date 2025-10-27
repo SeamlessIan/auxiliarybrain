@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auxiliary Brain, LLC</title>
-    <meta name="description" content="Auxiliary Brain - Certified Zoho Developer">
+    <meta name="description" content="Auxiliary Brain - Authorized Zoho Partner">
     
     <style>
         * {
@@ -12,7 +12,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -20,7 +19,6 @@
             background: white;
             padding-top: 70px; /* Space for sticky nav */
         }
-
         /* Sticky Navigation */
         .nav {
             position: fixed;
@@ -32,7 +30,6 @@
             z-index: 1000;
             padding: 1rem 0;
         }
-
         .nav-container {
             max-width: 800px;
             margin: 0 auto;
@@ -41,71 +38,145 @@
             justify-content: center;
             gap: 2rem;
         }
-
         .nav a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
         .nav a:hover {
             color: #3498db;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
-
         /* Header */
         .header {
             text-align: center;
             padding: 3rem 0;
             border-bottom: 1px solid #e9ecef;
         }
-
         .logo {
             max-height: 80px;
             width: auto;
             margin-bottom: 1rem;
         }
-
         .company-name {
             font-size: 2.5rem;
             font-weight: 300;
             color: #2c3e50;
             margin-bottom: 0.5rem;
         }
-
         .tagline {
             font-size: 1.1rem;
             color: #666;
         }
-
+        /* CTA Section */
+        .cta-section {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .cta-content {
+            flex: 1;
+            text-align: left;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .cta-section p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #e7352b;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 53, 43, 0.3);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cta-button:hover {
+            background: #c92a21;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 53, 43, 0.4);
+        }
+        .cta-secondary {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e3ebf3 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .cta-secondary-content {
+            flex: 1;
+            text-align: left;
+        }
+        .cta-secondary h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .cta-secondary p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+        .cta-button-secondary {
+            display: inline-block;
+            background: #e7352b;
+            color: white;
+            text-decoration: none;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cta-button-secondary:hover {
+            background: #c92a21;
+            transform: translateY(-1px);
+        }
         /* Sections */
         .section {
             padding: 3rem 0;
             border-bottom: 1px solid #e9ecef;
         }
-
         .section:last-of-type {
             border-bottom: none;
         }
-
         .section h2 {
             font-size: 1.8rem;
             margin-bottom: 2rem;
             color: #2c3e50;
             text-align: center;
         }
-
         .section p {
             margin-bottom: 1rem;
             color: #555;
         }
-
         /* Certifications */
         .certifications-grid {
             display: grid;
@@ -113,11 +184,9 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .cert-item {
             text-align: center;
         }
-
         .cert-logo {
             height: 60px;
             width: auto;
@@ -125,13 +194,11 @@
             object-fit: contain;
             margin-bottom: 1rem;
         }
-
         .cert-item h3 {
             font-size: 1.1rem;
             font-weight: 600;
             color: #2c3e50;
         }
-
         /* Clients */
         .clients-grid {
             display: grid;
@@ -139,11 +206,9 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .client-item {
             text-align: center;
         }
-
         .client-logo {
             height: 50px;
             width: auto;
@@ -151,41 +216,34 @@
             object-fit: contain;
             margin-bottom: 0.75rem;
         }
-
         .client-logo[alt="Fearless Finance"] {
             background: #333;
             padding: 0.5rem;
             border-radius: 4px;
         }
-
         .client-name {
             font-size: 0.9rem;
             font-weight: 500;
             color: #2c3e50;
             line-height: 1.3;
         }
-
         /* Contact Form */
         .contact-section {
             padding: 3rem 0;
         }
-
         .contact-section h2 {
             margin-bottom: 2rem;
             color: #2c3e50;
         }
-
         .form-group {
             margin-bottom: 1rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
             color: #333;
         }
-
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -195,18 +253,15 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #3498db;
         }
-
         .form-group textarea {
             resize: vertical;
             min-height: 100px;
         }
-
         .submit-btn {
             background: #3498db;
             color: white;
@@ -217,11 +272,9 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .submit-btn:hover {
             background: #2980b9;
         }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -229,7 +282,6 @@
             color: #666;
             font-size: 0.9rem;
         }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-container {
@@ -237,7 +289,6 @@
                 gap: 1rem;
                 flex-wrap: wrap;
             }
-
             .container {
                 padding: 1rem;
             }
@@ -250,37 +301,65 @@
             .section {
                 padding: 2rem 0;
             }
-
+            .cta-section {
+                padding: 2rem 1rem;
+                margin: 1rem 0;
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-content {
+                text-align: center;
+            }
+            .cta-section h2 {
+                font-size: 1.3rem;
+            }
+            .cta-section p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+            .cta-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
             .certifications-grid {
                 grid-template-columns: 1fr;
             }
-
             .clients-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
         }
-
         @media (max-width: 480px) {
             body {
                 padding-top: 80px;
             }
-
             .nav-container {
                 gap: 0.75rem;
                 font-size: 0.9rem;
             }
-
             .clients-grid {
                 grid-template-columns: 1fr;
             }
+            .cta-button {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.95rem;
+            }
+            .cta-secondary {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+            }
+            .cta-secondary-content {
+                text-align: center;
+            }
+            .cta-secondary p {
+                margin-bottom: 1.5rem;
+            }
         }
-
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-
         /* Section spacing for navigation */
         .section {
             scroll-margin-top: 80px;
@@ -298,7 +377,6 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
-
     <div class="container">
         <!-- Header -->
         <header class="header" id="home">
@@ -307,13 +385,21 @@
             <p class="tagline">Certified Zoho Developer</p>
         </header>
 
+        <!-- Primary CTA Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2>🚀 Try Zoho One Free for 30 Days</h2>
+                <p>Get access to 45+ integrated business applications with a free trial. No credit card required.</p>
+            </div>
+            <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=441d9020042615231923a5eff6e1c68c" class="cta-button" target="_blank" rel="noopener noreferrer">Start Your Free Trial</a>
+        </div>
+
         <!-- About Section -->
         <section class="section" id="about">
             <h2>About</h2>
             <p>I am a certified Zoho Developer with 10+ years of experience.</p>
             <p>My experience includes clients in energy, retail, politics, medicine, transportation, and finance.</p>
         </section>
-
         <!-- Certifications Section -->
         <section class="section" id="certifications">
             <h2>Certifications</h2>
@@ -324,7 +410,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Clients Section -->
         <section class="section" id="clients">
             <h2>Clients</h2>
@@ -364,18 +449,25 @@
             </div>
         </section>
 
+        <!-- Secondary CTA Section -->
+        <div class="cta-secondary">
+            <div class="cta-secondary-content">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Start your free 30-day trial of Zoho One and discover how integrated business software can streamline your operations.</p>
+            </div>
+            <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=441d9020042615231923a5eff6e1c68c" class="cta-button-secondary" target="_blank" rel="noopener noreferrer">Get Started Free</a>
+        </div>
+
            <!-- Contact Form -->
         <section class="section contact-section" id="contact">
             <h2>Get In Touch</h2>
             <iframe aria-label='Contact Auxiliary Brain' frameborder="0" allow="geolocation;" style="height:700px;width:99%;border:none;" src='https://forms.zohopublic.com/auxiliarybrain/form/ContactAuxiliaryBrain/formperma/2lwlCBafhc385TqP3moUmFQozZ4voxcOGH8G9sgPqh0'></iframe>
         </section>
-
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 Auxiliary Brain, LLC. All rights reserved.</p>
         </footer>
     </div>
-
     <script>
         // Smooth scrolling for navigation (backup for older browsers)
         document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
